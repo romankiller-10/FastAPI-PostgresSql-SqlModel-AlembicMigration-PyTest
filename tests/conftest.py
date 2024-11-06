@@ -10,13 +10,10 @@ from master_server.dependencies.auth import get_current_user
 from .app_test_router import app_test_router
 
 
-# Fixture to create an in-memory SQLite database and yield the session
 @pytest.fixture(name="session")
 async def session_fixture():
-    # Create an in-memory SQLite database.
     engine = create_async_engine("sqlite+aiosqlite:///:memory:", future=True)
 
-    # Create the table in the database.
     async with engine.begin() as conn:
         await conn.run_sync(SQLModel.metadata.create_all)
 

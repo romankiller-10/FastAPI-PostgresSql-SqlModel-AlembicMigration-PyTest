@@ -167,3 +167,4 @@ postgres-data
 
 # env
 .env.local
+.env.example
