@@ -9,12 +9,8 @@ from .config import Environment
 # Context manager that will run before the server starts and after the server stops
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Run things before the server starts
-
     # Important to yield after running things before the server starts
     yield
-
-    # Run things before the server stops
 
 
 # Create the FastAPI app
